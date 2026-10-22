@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Letterboxd Roulette</title>
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Fuente externa recomendada -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <h1><span>Letterboxd</span> Ruleta</h1>
+    <p>Carga tu Watchlist y deja que el azar elija qué ver hoy.</p>
+  </header>
+
+  <main class="container">
+    <!-- Formulario de Entrada del Usuario -->
+    <section class="input-section">
+      <div class="input-group">
+        <label for="username">Usuario de Letterboxd:</label>
+        <div class="input-wrapper">
+          <input 
+            type="text" 
+            id="username" 
+            placeholder="Ej: tu_usuario" 
+            autocomplete="off" 
+            spellcheck="false"
+          >
+          <button id="load-btn" type="button">Cargar Lista</button>
+        </div>
+      </div>
+      <p id="status-msg" class="status-msg"></p>
+    </section>
+
+    <!-- Área de la Ruleta -->
+    <section class="roulette-section">
+      <div class="wheel-container">
+        <!-- Flecha indicadora superior -->
+        <div class="pointer"></div>
+        
+        <!-- Lienzo donde se dibuja la ruleta mediante JavaScript -->
+        <canvas id="wheel-canvas" width="500" height="500"></canvas>
+      </div>
+
+      <!-- Botón de Girar -->
+      <button id="spin-btn" class="spin-btn" disabled>¡Girar Ruleta!</button>
+    </section>
+
+    <!-- Resultado de la Película Ganadora -->
+    <section id="result-modal" class="result-container hidden">
+      <div class="result-card">
+        <h2>La película elegida es:</h2>
+        <h3 id="movie-title">---</h3>
+        <p id="movie-info"></p>
+        <a id="movie-link" href="#" target="_blank" rel="noopener noreferrer" class="letterboxd-link">Ver en Letterboxd</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Enlace al archivo de JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
